@@ -1,6 +1,6 @@
 const sequelize = require('../config/connection');
-const seedBook = require('./bookData.js');
-const seedShelf = require('./shelfData')
+const seedComments = require('./commentData');
+
 
 const seedAll = async () => {
     await sequelize.sync ({ force: true});
