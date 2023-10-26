@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Tech Blog</title>
   <link rel="stylesheet" href="/css/jass.css">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
@@ -13,11 +14,13 @@
     <h1>
       The Tech Blog
     </h1>
-    {{#if logged_in}}
     <nav>
-      <button>logout</button>
+      <button>Home</button>
+      <button>Dashboard</button>
+      {{#if logged_in}}
+      <button>Logout</button>
+      {{/if}}
     </nav>
-    {{/if}}
   </header>
   <main>
     {{{ body }}}

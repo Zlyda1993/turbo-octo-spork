@@ -1,7 +1,5 @@
 const router = require('express').Router();
-const { User } = require('../models');
-const { Comments } = require('../models');
-const Comments = require('../models/comments');
+const { User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', withAuth, async (req, res) => {
@@ -31,7 +29,7 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-router.post('/comments', withAuth, (req, res) => {
+router.post('/comment', withAuth, (req, res) => {
   const { title, comment } = req.body;
 
   Comments.create({
@@ -50,7 +48,7 @@ router.post('/comments', withAuth, (req, res) => {
 router.put('/update', withAuth, (req,res) => {
   const { title, comment } = req.body;
 
-  Comments.put({
+  Comment.put({
     title,
     comment,
   })
