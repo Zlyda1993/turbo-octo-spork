@@ -1,15 +1,14 @@
 const router = require('express').Router();
-const { User, Comment } = require('../models');
-const withAuth = require('../utils/auth');
+const { BlogPost } = require('../models');
 
 router.get('/', async (req, res) => {
   try {
-    const commentData = await Comment.findAll();
+    const blogPostData = await BlogPost.findAll();
 
-    const comments = commentData.map((comment) => comment.get({ plain: true }));
+    const posts = blogPostData.map((post) => post.get({ plain: true }));
 
     res.render('homepage', {
-      comments,
+      posts,
       loggedIn: req.session.loggedIn,
     });
   } catch (err) {
