@@ -38,16 +38,20 @@ router.get('/blog', async (req, res) => {
   }
 });
 
-router.post('/create-blog', withAuth, async (req, res) => {
+router.get('/post-by-id/:id', withAuth, async (req, res) => {
   try {
-    const newComment = await Blog.create({
-      ...req.body,
-      user_id: req.session.user_id,
-    });
+    const postId = req.params.id;
+    const singlePostData = await Blog.findByPk(postId);
 
-    res.status(200).json(newComment);
+    const post = singlePostData.get({ plain: true });
+
+    res.render('singlePost', {
+      post: post,
+      loggedIn: req.session.loggedIn,
+    });
   } catch (err) {
-    res.status(400).json(err);
+    console.log(err)
+    res.status(500).json(err);
   }
 });
 
