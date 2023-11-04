@@ -40,20 +40,25 @@ router.get('/blog', async (req, res) => {
 
 router.get('/post-by-id/:id', withAuth, async (req, res) => {
   try {
-    const postId = req.params.id;
-    const singlePostData = await Blog.findByPk(postId, {
-      include: Comment
+    
+    const singlePostData = await Blog.findByPk(req.params.id, {
+      include: [{ model: Comment }]
     });
 
-    const post = singlePostData.get({ plain: true });
+    if(singlePostData) {
+    const blog = singlePostData.get({ plain: true });
 
     res.render('singlePost', {
-      post: post,
+      post: blog,
+      comments: blog.Comments,
       loggedIn: req.session.loggedIn,
     });
-  } catch (err) {
-    console.log(err)
-    res.status(500).json(err);
+  } else {
+    res.status(404).send('Not Found');
+  }
+  } catch (error) {
+    console.log(error)
+    res.status(500).json(error.toString());
   }
 });
 
