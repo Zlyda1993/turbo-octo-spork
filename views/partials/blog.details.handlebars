@@ -5,7 +5,9 @@
         <button class="btn btn-primary" id="deleteBlog" type="submit">Delete Blog</button>
     </section>
 
-
+{{#each post}}
+  <p>{{post.comment}}</p>
+{{/each}}
 
     <div class="row justify-space-between-md">
   <div id="signin" class="blog-card">

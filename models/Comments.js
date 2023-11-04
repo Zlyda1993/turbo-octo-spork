@@ -15,12 +15,20 @@ Comment.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    blogid: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'Blog',
+        key: 'id',
+  },
+},
   },
   {
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: 'comment',
+    modelName: 'comments',
   }
 );
 
