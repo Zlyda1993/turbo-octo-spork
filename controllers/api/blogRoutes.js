@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Blog } = require('../../models');
+const { Blog, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.post('/create-blog', withAuth, async (req, res) => {
@@ -31,7 +31,7 @@ router.post('/create-blog', withAuth, async (req, res) => {
 
         await Comment.destroy({
             where: {
-                blog_id: blogid
+                blogid: blogid
             }
         });
 
@@ -42,6 +42,32 @@ router.post('/create-blog', withAuth, async (req, res) => {
         res.status(500).json({ error: 'Internal Server Error' });
     }
 });
+
+router.put('/update-blog/:id', withAuth, async (req, res) => {
+  try {
+    const updatedBlog = await Blog.update(
+      {
+        title: req.body.title,
+        description: req.body.description,
+      },
+      {
+        where: {
+          id: req.params.id,
+          user_id: req.session.user_id,
+        },
+      }
+    );
+
+    if (updatedBlog[0] === 1) {
+      res.status(200).json({ message: 'Blog post updated successfully' });
+    } else {
+      res.status(404).json({ message: 'Blog post not found or unauthorized' });
+    }
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
 
 module.exports = router;
 
