@@ -1,13 +1,16 @@
 const updateButton = document.querySelector('#updateBlog');
-const blogid = updateButton.getAttribute('data-blogid');
+const blogid2 = updateButton.getAttribute('data-blogid');
+const title = document.querySelector('.updateTitle').value.trim();
+const description = document.querySelector('.updateDescription').value.trim();
 
 updateButton.addEventListener('click', async () => {
-    if (blogid) {
+    if (blogid2) {
 
-        const newTitle = 'New Title';
-        const newDescription = 'New Description';
-
-        const response = await fetch(`/api/blogs/update-blog/${blogid}`, {
+        const newTitle = title;
+        const newDescription = description;
+console.log(newDescription);
+console.log(newTitle);
+        const response = await fetch(`/api/blogs/update-blog/${blogid2}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -16,9 +19,8 @@ updateButton.addEventListener('click', async () => {
         });
 
         if (response.ok) {
-            document.location.replace('/')
+            document.location.replace('/post-by-id/' + blogid2)
         } else {
-           console.log(err);
             alert('Failed to update the blog post.');
         }
     }
