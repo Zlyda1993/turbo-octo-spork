@@ -1,8 +1,8 @@
  <section class="card">
-        <header>{{post.title}}</header>
-        <p>{{post.description}}</p>
-        <button class="btn btn-primary" id="updateBlog" type="submit">Update Blog</button>
-        <button class="btn btn-primary" id="deleteBlog" type="submit">Delete Blog</button>
+        <input id="blogid">{{post.title}}</input>
+        <input>{{post.description}}</input>
+        <button class="btn btn-primary" id="updateBlog" data-blogid="{{post.id}}" type="submit">Update Blog</button>
+        <button class="btn btn-primary" id="deleteBlog" data-blogid="{{post.id}}" type="submit">Delete Blog</button>
     </section>
 
 {{#each post.comments}}
@@ -26,3 +26,5 @@
   </div>
 
 <script src="/js/comment.js"></script>
+<script src="/js/deletePost.js"></script>
+<script src="/js/updatePost.js"></script>
