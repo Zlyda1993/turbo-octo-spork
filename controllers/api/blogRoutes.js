@@ -16,7 +16,7 @@ router.post('/create-blog', withAuth, async (req, res) => {
     }
   });
 
-  router.delete('/delete-blog/:id', withAuth, async (req, res) => {
+  router.delete('/delete-blog/:blogid', withAuth, async (req, res) => {
     try {
         const blogid = req.params.blogid;
         const blog = await Blog.findByPk(blogid);
