@@ -15,7 +15,7 @@ const commentHandler = async (event) => {
         });
 
         if (response.ok) {
-            document.location.replace('/');
+            document.location.replace('/post-by-id/' + blogid);
         } else {
             alert('Failed to create a new comment.');
         }

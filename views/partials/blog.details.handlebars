@@ -5,8 +5,10 @@
         <button class="btn btn-primary" id="deleteBlog" type="submit">Delete Blog</button>
     </section>
 
-{{#each comments}}
-  <p>{{this.comment}}</p>
+{{#each post.comments}}
+  {{#with this}}
+    <p>{{comment}}</p>
+  {{/with}}
 {{/each}}
 
     <div class="row justify-space-between-md">
