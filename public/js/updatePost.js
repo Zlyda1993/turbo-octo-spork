@@ -1,15 +1,15 @@
 const updateButton = document.querySelector('#updateBlog');
 const blogid2 = updateButton.getAttribute('data-blogid');
-const title = document.querySelector('.updateTitle').value.trim();
-const description = document.querySelector('.updateDescription').value.trim();
+
 
 updateButton.addEventListener('click', async () => {
     if (blogid2) {
-
+        const title = document.querySelector('.updateTitle').value.trim();
+        const description = document.querySelector('.updateDescription').value.trim();
+        
         const newTitle = title;
         const newDescription = description;
-console.log(newDescription);
-console.log(newTitle);
+
         const response = await fetch(`/api/blogs/update-blog/${blogid2}`, {
             method: 'PUT',
             headers: {
