@@ -1,23 +1,25 @@
- <section class="card">
-        <input id="blogid" class="updateTitle" value="{{post.title}}"></input>
-        <input id="blogid" class="updateDescription" value="{{post.description}}"></input>
-        <button class="btn btn-primary" id="updateBlog" data-blogid="{{post.id}}" type="submit">Update Blog</button>
-        <button class="btn btn-primary" id="deleteBlog" data-blogid="{{post.id}}" type="submit">Delete Blog</button>
-    </section>
+<section class="card" id="postDetails">
+  <textarea id="blogid" class="updateTitle">{{post.title}}</textarea>
+  <textarea id="blogid" class="updateDescription">{{post.description}}</textarea>
+  <div id="buttons">
+  <button class="btn btn-primary" id="updateBlog" data-blogid="{{post.id}}" type="submit">Update Blog</button>
+  <button class="btn btn-primary" id="deleteBlog" data-blogid="{{post.id}}" type="submit">Delete Blog</button>
+  </div>
+</section>
 
 {{#each post.comments}}
-  {{#with this}}
-    <p>{{comment}}</p>
-  {{/with}}
+{{#with this}}
+<p id="comments">{{comment}}</p>
+{{/with}}
 {{/each}}
 
-    <div class="row justify-space-between-md">
-  <div id="signin" class="blog-card">
-    <h2 class="page-title">New Comment</h2>
+<div class="row justify-space-between-md">
+  <div id="addComment" class="blog-card">
     <form class="form comment-form">
+      <h2 class="page-title">New Comment</h2>
       <div class="form-group">
         <label for="password-login">Comment:</label>
-        <input class="form-input" type="text" id="comment"/>
+        <textarea class="form-input" type="text" id="comment"></textarea>
       </div>
       <div class="form-group">
         <button class="btn btn-primary" id="createComment" type="submit">Create Comment</button>
@@ -25,6 +27,6 @@
     </form>
   </div>
 
-<script src="/js/comment.js"></script>
-<script src="/js/deletePost.js"></script>
-<script src="/js/updatePost.js"></script>
+  <script src="/js/comment.js"></script>
+  <script src="/js/deletePost.js"></script>
+  <script src="/js/updatePost.js"></script>
