@@ -6,3 +6,72 @@ body {
     font-family: 'Poppins', sans-serif;
     height: fit-content;
 }
+
+#nav {
+    text-align: center;
+    color: black;
+    background-color: darkblue;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: -8px;
+}
+
+#title {
+    text-align: center;
+    color: black;
+    text-decoration: none;
+    background-color: darkblue;
+    padding-bottom: 10px;
+    font-size: 4rem;
+}
+
+.bordered-link{
+    border: 1px solid rgb(101, 101, 101);
+    text-decoration: none;
+    border-radius: 2px;
+    background-color: rgb(243, 241, 241);
+    color: black;
+    padding-left: 6px;
+    padding-right: 6px;
+}
+
+.bordered-link:hover {
+    text-decoration: none;
+    background-color: rgb(225, 224, 224);
+    color: black;
+}
+
+.newBlog{
+    border: 1px solid rgb(101, 101, 101);
+    text-decoration: none;
+    border-radius: 2px;
+    background-color: rgb(243, 241, 241);
+    color: black;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    width: 30%;
+    font-size: 2rem;
+    margin-top: 15%;
+    margin-left: 35%;
+}
+
+.newBlog:hover{
+    text-decoration: none;
+    background-color: rgb(225, 224, 224);
+    color: black;
+}
+
+#newBlogPost {
+    margin-top: 4%;
+    margin-left: 41%;
+    border: 1px solid rgb(101, 101, 101);
+    border-radius: 2px;
+    background-color: rgb(243, 241, 241);
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
