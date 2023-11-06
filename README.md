@@ -28,10 +28,14 @@
 
 ## stylize everything after you have it all functioning properly.
 
-# Link to Deployed Application:
+# Link to GitHub:
 
 ##  https://zlyda1993.github.io/glowing-spork/
 
+# Link to Deployed Application:
+
+## https://cryptic-retreat-19540-00658701978c.herokuapp.com/dashboard
+
 # Screen Shot of deployed application:
 
- ![Screenshot of deployed image](./)
+ ![Screenshot of deployed image](./Deployed_app.png)
